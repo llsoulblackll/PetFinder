@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.petfinder"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:$rootProject.AppCompatVersion"
+    implementation "com.android.support:design:$AppCompatVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.ConstraintLayoutVersion"
+    testImplementation "junit:junit:$rootProject.JUnitVersion"
+    implementation "com.google.android.gms:play-services-maps:$PlayServicesVersion"
+    implementation "com.google.android.gms:play-services-location:$PlayServicesVersion"
+    implementation "com.squareup.picasso:picasso:$PicassoVersion"
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //androidTestCompile "com.android.support:support-annotations:$AppCompatVersion"//espresso version clash fix
+    //androidTestCompile "com.android.support:appcompat-v7:$rootProject.AppCompatVersion"
+    //androidTestCompile "com.android.support:design:$AppCompatVersion"
+    androidTestCompile("com.squareup.picasso:picasso:$PicassoVersion"){
+        exclude module: 'support-annotations'//exclude group: 'com.android.support'
+    }
+}

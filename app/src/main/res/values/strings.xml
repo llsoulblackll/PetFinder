@@ -1,0 +1,40 @@
+<resources>
+    <!--APP SETTINGS-->
+    <string name="app_name">PetFinder</string>
+    <string name="ip_key">IPKey</string>
+    <string name="google_maps_key">AIzaSyDWbkPuWttMVahEJQt9gA_IZNFgzUXu-t8</string>
+
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_settings">Ajustes</string>
+    <string name="title_new_pet">Agregar</string>
+    <string name="dashboard_frag">dashboard_frag</string>
+    <string name="settings_frag">settings_frag</string>
+    <string name="new_pet_frag">new_pet_frag</string>
+
+    <!--SETTINGS FRAGMENT-->
+    <string name="btn_save_changes">Guardar Cambios</string>
+    <string name="et_ip_hint">IP y Puerto</string>
+
+    <string name="name_hint">Nombre</string>
+    <string name="age_hint">Edad</string>
+    <string name="desc_hint">Descripción</string>
+    <string name="race_hint">Raza</string>
+    <string name="size_hint">Tamaño</string>
+
+    <string name="menu_item_send">Enviar</string>
+
+    <string-array name="race_items">
+        <item>Bulldog</item>
+        <item>Pitbull</item>
+        <item>Golden Retriever</item>
+        <item>Boxer</item>
+        <item>Lass</item>
+    </string-array>
+
+    <string-array name="size_items">
+        <item>Pequeño</item>
+        <item>Mediano</item>
+        <item>Grande</item>
+    </string-array>
+
+</resources>
