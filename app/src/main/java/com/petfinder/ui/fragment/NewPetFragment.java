@@ -181,17 +181,23 @@ public class NewPetFragment extends Fragment implements OnMapReadyCallback {
                 );
                 toInsert.setImageBase64(imageBase64);
                 toInsert.setImageExtension(imageExtension);
-                petWs.insert(toInsert, new Ws.WsCallback<Object>() {
-                    @Override
-                    public void execute(Object response) {
-                        if(response != null){
-                            System.out.println(response);
-                            Toast.makeText(getContext(), "Mascota insertada", Toast.LENGTH_SHORT).show();
-                        } else
-                            Util.showAlert("Un error ha ocurrido, asegurese de haber porpocionado una IP y puerto correctos en ajustes", getContext());
-                    }
-                });
-                return true;
+
+                try {
+                    petWs.insert(toInsert, new Ws.WsCallback<Object>() {
+                        @Override
+                        public void execute(Object response) {
+                            if (response != null) {
+                                System.out.println(response);
+                                Toast.makeText(getContext(), "Mascota insertada", Toast.LENGTH_SHORT).show();
+                            } else
+                                Util.showAlert("Un error ha ocurrido, asegurese de haber porpocionado una IP y puerto correctos en ajustes", getContext());
+                        }
+                    });
+                    return true;
+                } catch (RuntimeException ex){
+                    Util.showAlert(ex.getMessage() + "\n Probablemente la IP esta mal formada", getContext());
+                    return false;
+                }
         }
         return super.onOptionsItemSelected(item);
     }

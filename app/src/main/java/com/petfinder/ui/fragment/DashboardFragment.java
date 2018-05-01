@@ -58,6 +58,7 @@ public class DashboardFragment extends Fragment {
 
         //if(pets.size() <= 0) {
 
+        try {
             petWs.findAll(new Ws.WsCallback<List<Pet>>() {
                 @Override
                 public void execute(List<Pet> response) {
@@ -81,6 +82,9 @@ public class DashboardFragment extends Fragment {
                     petListView.setAdapter(new PetAdapter(getContext(), pets, R.layout.item_pet));
                 }
             });
+        } catch(RuntimeException ex){
+            Util.showAlert(ex.getMessage() + "\nProbablemente al IP esta mal formada", getContext());
+        }
         //}
 
         return layout;

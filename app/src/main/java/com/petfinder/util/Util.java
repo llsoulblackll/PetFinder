@@ -88,7 +88,7 @@ public final class Util {
         public static final String PUT = "PUT";
         public static final String DELETE = "DELETE";
 
-        private static final int CONNECTION_TIMEOUT = 420000;
+        private static final int CONNECTION_TIMEOUT = 30000;
 
         private static HttpURLConnection urlConnection = null;
 
