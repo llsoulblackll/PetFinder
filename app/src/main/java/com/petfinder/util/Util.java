@@ -75,7 +75,7 @@ public final class Util {
         }
 
         public static int requestPermission(Activity activity, String... permission) {
-            int requestCode = new Random().nextInt(Integer.MAX_VALUE);
+            int requestCode = new Random().nextInt(65536);//MAX 8BIT
             ActivityCompat.requestPermissions(activity, permission, requestCode);
             return requestCode;
         }
